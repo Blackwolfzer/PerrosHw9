@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
 	FILE *infile;
 	char str[7] = "--help";
 	char OutF[FSIZE];
+	float num[12];
 	if(argc != 3 && (argc == 1 || (strcmp(argv[1], str) == 0)))
 	{
 		Usage(&argv[0]);
@@ -38,6 +39,7 @@ int main(int argc, char *argv[])
 	}
 
 	strcpy(outF, argv[1]);
+	ReadFile(outF, num[]);
 
 
 	return 0;
@@ -56,6 +58,11 @@ void Usage(char **info)
 
 void ReadFile(char *fileName, float num[])
 {
-	infile
+	infile = fopen("fileName", "r");
+	
+	
+
+
+	fclose(infile);
 	return;
 }
