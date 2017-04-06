@@ -60,7 +60,14 @@ void ReadFile(char *fileName, float num[])
 {
 	infile = fopen("fileName", "r");
 	
-	
+	if (infile != NULL)
+	{
+		printf(" we were able to read the file muahahhahaha");
+	}
+	else
+	{
+		printf("we were not able to read that stupid file that you want us to read");
+	}
 
 
 	fclose(infile);
