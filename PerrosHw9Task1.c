@@ -16,17 +16,19 @@
 #include <stdio.h>		/* For Standard I/O */
 #include <stdlib.h>
 #include <string.h> 
+
 #define FSIZE 21
 /* Function Prototypes */
-
 void Usage(char **info);
-void ReadFile(char *fileName, double num[]);
+void ReadFile(char *fileName, float num[]);
+FILE *OpenCheckFile(char *fileName);
 
 /* Main Program */
 int main(int argc, char *argv[])
 {
+	float array[FSIZE];
+	char outF[FSIZE];
 	char str[7] = "--help";
-	char OutF[FSIZE];
 	if(argc != 3 && (argc == 1 || (strcmp(argv[1], str) == 0)))
 	{
 		Usage(&argv[0]);
@@ -35,17 +37,13 @@ int main(int argc, char *argv[])
 	{
 		Usage(&argv[0]);
 	}
-//	float ar1;
-//	ar1 = atof(argv[1]);
-	strcpy(OutF, argv[1]);
-//	ReadFile(OutF, &ar1);
-	double array[FSIZE];
-	ReadFile(OutF, array);
+	strcpy(outF, argv[1]);
+	ReadFile(outF, array);
 	for (int i = 0; i < 12; i++)
 	{
 		printf("no no no%lf\n", array[i]);
 	}
-	
+	*OpenCheckFile(outF);
 
 
 	return 0;
@@ -55,49 +53,68 @@ int main(int argc, char *argv[])
 /* Function Defenitions */
 void Usage(char **info)
 {
-		printf("\nUsage %s <dataFile> <outFileName>\n\n", *info);
-		exit(1);
+	printf("\nUsage %s <dataFile> <outFileName>\n\n", *info);
+	exit(1);
 
 	return;
 }
 
-
-void ReadFile(char *fileName, double num[])
+void ReadFile(char *fileName, float num[])
 {
-	FILE *infile;
-	infile = fopen(fileName, "r");
-	
-	if (infile != NULL)
+	FILE *inFile;
+	inFile = fopen(fileName, "r");
+
+	if (inFile != NULL)
 	{
 		printf(" we were able to read the file muahahhahaha");
-		fseek(infile, 0, SEEK_END);
-		long  sizef = ftell(infile);
+		fseek(inFile, 0, SEEK_END);
+		long  sizef = ftell(inFile);
 		long  count = 0;
-		fseek(infile, 0 , SEEK_SET);
+		fseek(inFile, 0 , SEEK_SET);
 		long i = 0;
 
 	while ( count <= sizef )
 	{
-		fscanf(infile, "%lf", &num[i]);
+		fscanf(inFile, "%lf", &num[i]);
 		if (i < 12)
 			printf("hi hi hi%f\n", num[i]);
-	/*  	fread(num++, sizeof(float), 1 , infile); //  were in the array, the size of the data that i want to read, how many in a row, and what file i'm taking it from
+	/*  	fread(num++, sizeof(float), 1 , inFile); //  were in the array, the size of the data that i want to read, how many in a row, and what file i'm taking it from
 		printf("%ld \nboo %lf\n", count,   *num++);
-		fseek(infile, sizeof(char)+sizeof(float), SEEK_CUR);
+		fseek(inFile, sizeof(char)+sizeof(float), SEEK_CUR);
 		i++;
 		count += sizeof(float) + sizeof(char);
 		*/
 		i++;
 		count += sizeof(float) + sizeof(char);
 	}	
-	fclose(infile);
+	fclose(inFile);
 	}
 	else
 	{
 		printf("we were not able to read that stupid file that you want us to read");
 	}
 
-	
-
 	return;
+}
+
+FILE *OpenCheckFile(char *fileName)
+{
+	FILE *inFile;
+	char resp;
+	inFile = fopen(filename, "w");
+	if(inFile != NULL)
+	{
+		printf("The %s file exits.\n", filename);
+		printf("Do you want to overwrtie it?\n");
+		scanf("%c", &resp);
+		
+		if (resp == 'n' || resp == 'N')
+		{
+			printf("The existing file won't be overwritten\n");
+			printf("Goodbye\n");
+			exit(1);
+		}
+	fclose(inFile);\
+	}
+	return ();
 }
