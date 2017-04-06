@@ -25,7 +25,6 @@ void ReadFile(char *fileName, float num[]);
 /* Main Program */
 int main(int argc, char *argv[])
 {
-	FILE *infile;
 	char str[7] = "--help";
 	char OutF[FSIZE];
 	float num[12];
@@ -38,8 +37,8 @@ int main(int argc, char *argv[])
 		Usage(&argv[0]);
 	}
 
-	strcpy(outF, argv[1]);
-	ReadFile(outF, num[]);
+	strcpy(OutF, argv[1]);
+	ReadFile(OutF, num);
 
 
 	return 0;
@@ -58,6 +57,7 @@ void Usage(char **info)
 
 void ReadFile(char *fileName, float num[])
 {
+	FILE *infile;
 	infile = fopen("fileName", "r");
 	
 	if (infile != NULL)
