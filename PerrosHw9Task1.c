@@ -12,19 +12,42 @@
  *         Author:  Daniel Tayler (), danieltayler@mail.weber.edu
  * =====================================================================================
  */
+
 #include <stdio.h>		/* For Standard I/O */
 #include <stdlib.h>
-
+#include <string.h> 
+#define FSIZE 21
 /* Function Prototypes */
-
+void Usage(char **info);
 /* Main Program */
-int  main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
+	FILE *infile;
+	char str[7] = "--help";
+	char OutF[FSIZE];
+	if(argc != 3 && (argc == 1 || (strcmp(argv[1], str) == 0)))
+	{
+		Usage(&argv[0]);
+	}
+	else if(argc != 3)
+	{
+		Usage(&argv[0]);
+	}
+
+	strcpy(outF, argv[1]);
+
 
 	return 0;
 }
 
 
 /* Function Defenitions */
+void Usage(char **info)
+{
+		printf("\nUsage %s <dataFile> <outFileName>\n\n", *info);
+		exit(1);
+
+	return;
+}
 
 
