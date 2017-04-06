@@ -20,7 +20,7 @@
 /* Function Prototypes */
 
 void Usage(char **info);
-void ReadFile(char *fileName, float num[]);
+void ReadFile(char *fileName, double num[]);
 
 /* Main Program */
 int main(int argc, char *argv[])
@@ -35,10 +35,17 @@ int main(int argc, char *argv[])
 	{
 		Usage(&argv[0]);
 	}
-	float ar1;
-	ar1 = atof(argv[1]);
+//	float ar1;
+//	ar1 = atof(argv[1]);
 	strcpy(OutF, argv[1]);
-	ReadFile(OutF, &ar1);
+//	ReadFile(OutF, &ar1);
+	double array[FSIZE];
+	ReadFile(OutF, array);
+	for (int i = 0; i < 12; i++)
+	{
+		printf("no no no%lf\n", array[i]);
+	}
+	
 
 
 	return 0;
@@ -55,7 +62,7 @@ void Usage(char **info)
 }
 
 
-void ReadFile(char *fileName, float num[])
+void ReadFile(char *fileName, double num[])
 {
 	FILE *infile;
 	infile = fopen(fileName, "r");
@@ -63,14 +70,34 @@ void ReadFile(char *fileName, float num[])
 	if (infile != NULL)
 	{
 		printf(" we were able to read the file muahahhahaha");
-		
+		fseek(infile, 0, SEEK_END);
+		long  sizef = ftell(infile);
+		long  count = 0;
+		fseek(infile, 0 , SEEK_SET);
+		long i = 0;
+
+	while ( count <= sizef )
+	{
+		fscanf(infile, "%lf", &num[i]);
+		if (i < 12)
+			printf("hi hi hi%f\n", num[i]);
+	/*  	fread(num++, sizeof(float), 1 , infile); //  were in the array, the size of the data that i want to read, how many in a row, and what file i'm taking it from
+		printf("%ld \nboo %lf\n", count,   *num++);
+		fseek(infile, sizeof(char)+sizeof(float), SEEK_CUR);
+		i++;
+		count += sizeof(float) + sizeof(char);
+		*/
+		i++;
+		count += sizeof(float) + sizeof(char);
+	}	
+	fclose(infile);
 	}
 	else
 	{
 		printf("we were not able to read that stupid file that you want us to read");
 	}
 
+	
 
-	fclose(infile);
 	return;
 }
