@@ -18,7 +18,10 @@
 #include <string.h> 
 #define FSIZE 21
 /* Function Prototypes */
+
 void Usage(char **info);
+void ReadFile(char *fileName, float num[]);
+
 /* Main Program */
 int main(int argc, char *argv[])
 {
@@ -51,3 +54,7 @@ void Usage(char **info)
 }
 
 
+void ReadFile(char *fileName, float num[])
+{
+	return;
+}
