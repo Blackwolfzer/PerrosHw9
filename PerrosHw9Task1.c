@@ -56,5 +56,6 @@ void Usage(char **info)
 
 void ReadFile(char *fileName, float num[])
 {
+	infile
 	return;
 }
