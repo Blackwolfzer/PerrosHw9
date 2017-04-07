@@ -82,7 +82,7 @@ void MathFunction(int xAxis[], int yAxis[], int Rep)
 	}
 	sumxThenSquare = ( sumx * sumx);
 	// time fore math to work out lets see if we can't gt m and b muahahhaha
-	m = (  (  (sumx * sumy) - (sumxy)  ) /  (  ( sumxThenSquare ) - ( Rep * sumxx)  )  );
+	m = (  (  (sumx * sumy) - (Rep * sumxy)  ) /  (  ( sumxThenSquare ) - ( Rep * sumxx)  )  );
 
 	b = (  (  ( sumx * sumxy)  -  ( sumxx * sumy ) ) /  (  ( sumxThenSquare ) - ( Rep *  sumxx) ) );
 
