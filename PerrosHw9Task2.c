@@ -17,43 +17,44 @@
 #define COLS 2
 #define ROWS 4
 /* Function Prototypes */
-void MathFunction(float xAxis[], float yAxis[], int Rep);
-void MathFunctionBegin(float xyAxis[][COLS],ar1[], ar2[], int Rep);
+//void MathFunction(float xAxis[], float yAxis[], int Rep);
+//void MathFunctionBegin(float xyAxis[][COLS],ar1[], ar2[], int Rep);
 
 /* Main Program */
 int main(int argc, char *argv[])
 {
 	FILE *inFile;
+	int xyValues[ROWS][COLS];
 	inFile = fopen("zone1.txt", "r");
 	if(inFile != NULL)
 	{
-		printf("<%s> was read.\n", zone1.txt);
+		printf("<%s> was read.\n", "zone1.txt");
 	}
 		int count = 0;
-		while(fscanf(inFile, "%d", &num[count][o]) != EOF)
+		while(fscanf(inFile, "%d", &xyValues[count][0]) != EOF)
 		{
 			for( int i =0; i < COLS ; i++)
 			{
-				fscanf(inFile, "%d", &num[count][i]);
+				fscanf(inFile, "%d", &xyValues[count][i]);
+				printf("%d\n", xyValues[count][i]);
 			}
 			count++;
 		}
 
-	/*  test variable to have an idea what i'm planning to do here lets see how well this works out */
-	float xyValues[ROWS][COLS];
+	/* test variable to have an idea what i'm planning to do here lets see how well this works out 
 	float xValues[ROWS];
 	float yValues[ROWS];
 
 	MathFunctionBefin( , xValues, yValues)
 	MathFunction(ar1, ar2, 12);
-
+*/
 	return 0;
 }
 
 
 /* Function Defenitions */
 
-void MathFunctionBegin(float xyAxis[][COLS],x[], y[]);
+/*  void MathFunctionBegin(float xyAxis[][COLS],x[], y[]);
 {
 	for ( int i = 0; i < ROWS ; i++)
 	{
@@ -93,5 +94,5 @@ void MathFunction(float xAxis[], float yAxis[], int Rep)
 			, sumx, sumy, sumxy, sumxx, sumxThenSquare);
 
 	return;
-}
+}*/
 
