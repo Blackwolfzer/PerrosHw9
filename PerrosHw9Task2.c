@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
 
 /* Function Defenitions */
 
- void MathFunctionBegin(int xyAxis[][COLS],int x[],int  y[]);
+ void MathFunctionBegin(int xyAxis[][COLS],int x[],int  y[])
 {
 	for ( int i = 0; i < ROWS ; i++)
 	{
@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
 	}
 	return;
 }
-void MathFunction(int xAxis[], int yAxis[], int Rep);
+void MathFunction(int xAxis[], int yAxis[], int Rep)
 {
 	float m = 0.0;
 	float b = 0.0;
