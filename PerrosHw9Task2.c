@@ -14,15 +14,21 @@
 #include <stdio.h>		/* For Standard I/O */
 #include <stdlib.h>
 
+#define COLS 2
+#define ROWS 4
 /* Function Prototypes */
 void MathFunction(float xAxis[], float yAxis[], int Rep);
+void MathFunctionBegin(float xyAxis[][COLS],ar1[], ar2[], int Rep);
 
 /* Main Program */
 int main(int argc, char *argv[])
 {
 	/*  test variable to have an idea what i'm planning to do here lets see how well this works out */
-	float ar1[12] = {  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
-	float ar2[12] = {  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+	float xyValues[ROWS][COLS];
+	float xValues[ROWS];
+	float yValues[ROWS];
+
+	MathFunctionBefin( , xValues, yValues)
 	MathFunction(ar1, ar2, 12);
 
 	return 0;
@@ -31,6 +37,17 @@ int main(int argc, char *argv[])
 
 /* Function Defenitions */
 
+void MathFunctionBegin(float xyAxis[][COLS],x[], y[]);
+{
+	for ( int i = 0; i < ROWS ; i++)
+	{
+		x[i] = xyAxis[i][j];
+		
+		for ( int j = 1; j < COLS ; j++)
+			y[i] = xyAxis[i][j];
+	}
+	return;
+}
 void MathFunction(float xAxis[], float yAxis[], int Rep)
 {
 	float m = 0.0;
