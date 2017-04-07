@@ -30,15 +30,13 @@ int main(int argc, char *argv[])
 	{
 		printf("<%s> was read.\n", "zone1.txt");
 	}
-		int count = 0;
-		while(fscanf(inFile, "%d", &xyValues[count][0]) != EOF)
+			for( int j =0; j < ROWS ; j++)
 		{
 			for( int i =0; i < COLS ; i++)
 			{
-				fscanf(inFile, "%d", &xyValues[count][i]);
-				printf("%d\n", xyValues[count][i]);
+				fscanf(inFile, "%d", &xyValues[j][i]);
+				printf("%d\n", xyValues[j][i]);
 			}
-			count++;
 		}
 
 	/* test variable to have an idea what i'm planning to do here lets see how well this works out 
