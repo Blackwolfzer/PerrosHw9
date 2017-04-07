@@ -22,6 +22,7 @@
 void Usage(char **info);
 void ReadFile(char *fileName, float num[]);
 FILE *OpenCheckFile(char *fileName);
+void WriteFile(FILE *outFile, float array[]);
 
 /* Main Program */
 int main(int argc, char *argv[])
@@ -75,7 +76,7 @@ void ReadFile(char *fileName, float num[])
 
 	while ( count <= sizef )
 	{
-		fscanf(inFile, "%lf", &num[i]);
+		fscanf(inFile, "%f", &num[i]);
 		if (i < 12)
 			printf("hi hi hi%f\n", num[i]);
 	/*  	fread(num++, sizeof(float), 1 , inFile); //  were in the array, the size of the data that i want to read, how many in a row, and what file i'm taking it from
@@ -117,4 +118,24 @@ FILE *OpenCheckFile(char *fileName)
 	fclose(inFile);\
 	}
 	return ();
+}
+
+
+
+void WriteFile(FILE *outFile, float array[])
+{
+	float sum = 0;
+	float avg = 0;
+	for(int i = 0; i < 12; i++)
+	{
+		fprintf(outFile, "%f" , array[i]);
+		sum += array[i];
+		avg = sum/12;
+
+	}
+	printf(" The sum of the number is: %f\n", sum);
+	printf(" The avg of the number is: %f\n", avg);
+	printf(" The numbers have been written to your file");
+
+	return;
 }
