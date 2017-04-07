@@ -89,8 +89,8 @@ void MathFunction(int xAxis[], int yAxis[], int Rep)
 
 	b = (  (  ( sumx * sumxy)  -  ( sumxx * sumy ) ) /  (  ( sumxThenSquare ) - ( Rep *  sumxx) ) );
 	
-	printf(" The Range of altitudes that we were wonderfully giver are\n %.2d to %.2d", xAxis[0], xAxis[(ROWS -1)]);
-	printf("\nozone-mix-ratio = %f altitude + %f\n\n", m , b);
+	printf("\nThe Range of altitudes that we were wonderfully given in km are: %.2d to %.2d\n", xAxis[0], xAxis[(ROWS -1)]);
+	printf("\nozone-mix-ratio = %.2f altitude + %.2f\n\n", m , b);
 
 	return;
 }
