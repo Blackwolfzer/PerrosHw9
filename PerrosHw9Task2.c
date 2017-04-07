@@ -23,6 +23,18 @@ void MathFunctionBegin(float xyAxis[][COLS],ar1[], ar2[], int Rep);
 /* Main Program */
 int main(int argc, char *argv[])
 {
+	FILE *inFile;
+	inFile = fopen("zone1.txt", "r");
+	if(inFile != NULL)
+	{
+		printf("<%s> was read.\n", zone1.txt);
+	}
+		int count = 0;
+		while(fscanf(inFile, "%d", &num[count]) != EOF)
+		{
+			count++;
+		}
+
 	/*  test variable to have an idea what i'm planning to do here lets see how well this works out */
 	float xyValues[ROWS][COLS];
 	float xValues[ROWS];
