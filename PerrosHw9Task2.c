@@ -30,8 +30,12 @@ int main(int argc, char *argv[])
 		printf("<%s> was read.\n", zone1.txt);
 	}
 		int count = 0;
-		while(fscanf(inFile, "%d", &num[count]) != EOF)
+		while(fscanf(inFile, "%d", &num[count][o]) != EOF)
 		{
+			for( int i =0; i < COLS ; i++)
+			{
+				fscanf(inFile, "%d", &num[count][i]);
+			}
 			count++;
 		}
 
