@@ -17,8 +17,8 @@
 #define COLS 2
 #define ROWS 4
 /* Function Prototypes */
-//void MathFunction(float xAxis[], float yAxis[], int Rep);
-//void MathFunctionBegin(float xyAxis[][COLS],ar1[], ar2[], int Rep);
+void MathFunction(int xAxis[], int yAxis[], int Rep);
+ void MathFunctionBegin(int xyAxis[][COLS],int x[],int  y[]);
 
 /* Main Program */
 int main(int argc, char *argv[])
@@ -39,20 +39,20 @@ int main(int argc, char *argv[])
 			}
 		}
 
-	/* test variable to have an idea what i'm planning to do here lets see how well this works out 
-	float xValues[ROWS];
-	float yValues[ROWS];
+	/* test variable to have an idea what i'm planning to do here lets see how well this works out */
+	int xValues[ROWS];
+	int yValues[ROWS];
 
-	MathFunctionBefin( , xValues, yValues)
-	MathFunction(ar1, ar2, 12);
-*/
+	MathFunctionBegin( xyValues, xValues, yValues);
+	MathFunction(xValues, yValues, sizeof(xValues)/sizeof(int));
+
 	return 0;
 }
 
 
 /* Function Defenitions */
 
-/*  void MathFunctionBegin(float xyAxis[][COLS],x[], y[]);
+ void MathFunctionBegin(int xyAxis[][COLS],int x[],int  y[]);
 {
 	for ( int i = 0; i < ROWS ; i++)
 	{
@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
 	}
 	return;
 }
-void MathFunction(float xAxis[], float yAxis[], int Rep)
+void MathFunction(int xAxis[], int yAxis[], int Rep);
 {
 	float m = 0.0;
 	float b = 0.0;
@@ -92,5 +92,5 @@ void MathFunction(float xAxis[], float yAxis[], int Rep)
 			, sumx, sumy, sumxy, sumxx, sumxThenSquare);
 
 	return;
-}*/
+}
 
