@@ -15,10 +15,15 @@
 #include <stdlib.h>
 
 /* Function Prototypes */
+void MathFunction(float xAxis[], float yAxis[], int Rep);
 
 /* Main Program */
 int main(int argc, char *argv[])
 {
+	/*  test variable to have an idea what i'm planning to do here lets see how well this works out */
+	float ar1[12] = {  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+	float ar2[12] = {  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+	MathFunction(ar1, ar2, 12);
 
 	return 0;
 }
@@ -26,4 +31,34 @@ int main(int argc, char *argv[])
 
 /* Function Defenitions */
 
+void MathFunction(float xAxis[], float yAxis[], int Rep)
+{
+	float m = 0.0;
+	float b = 0.0;
+	int sumx = 0; //sum of teh x axis
+	int sumy = 0; //sum of the y axis
+	int sumxy = 0; //sum of hte x time y axis
+	int sumxx = 0; // sum of x^2
+	int sumxThenSquare = 0; // sum of x then x squared
+	for(int i = 0; i < Rep; i++)
+	{
+		sumx += xAxis[i];
+		sumy += yAxis[i];
+		sumxy += (xAxis[i] * yAxis[i]);
+		sumxx += ( xAxis[i] * xAxis[i]);
+
+	}
+	sumxThenSquare = ( sumx * sumx);
+	// time fore math to work out lets see if we can't gt m and b muahahhaha
+	m = (  (  (sumx * sumy) - (sumxy)  ) /  (  ( sumxThenSquare ) - ( Rep * sumxx)  )  );
+
+	b = (  (  ( sumx * sumxy)  -  ( sumxx * sumy ) ) /  (  ( sumxThenSquare ) - ( Rep *  sumxx) ) );
+
+	printf(" %f for m and %f for b\n ", m , b);
+
+	printf(" The values of sums to see if they work sumx %d sumy %d sumxy %d sumxx %d sum^2 %d \n "
+			, sumx, sumy, sumxy, sumxx, sumxThenSquare);
+
+	return;
+}
 
