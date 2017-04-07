@@ -45,6 +45,7 @@ int main(int argc, char *argv[])
 		printf("no no no%lf\n", array[i]);
 	}
 	*OpenCheckFile(outF);
+	WriteFile(// what are we call the two that go here
 
 
 	return 0;
