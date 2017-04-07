@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
 {
 	for ( int i = 0; i < ROWS ; i++)
 	{
-		x[i] = xyAxis[i][j];
+		x[i] = xyAxis[i][0];
 		
 		for ( int j = 1; j < COLS ; j++)
 			y[i] = xyAxis[i][j];
