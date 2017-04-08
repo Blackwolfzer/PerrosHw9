@@ -17,8 +17,8 @@
 #define COLS 2
 #define ROWS 4
 /* Function Prototypes */
-void MathFunction(int xAxis[], int yAxis[], int Rep);
- void MathFunctionBegin(int xyAxis[][COLS],int x[],int  y[]);
+void MathFunction(float xAxis[], float yAxis[], int Rep);
+ void MathFunctionBegin(int xyAxis[][COLS],float x[],float y[]);
 
 /* Main Program */
 int main(int argc, char *argv[])
@@ -41,17 +41,17 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	int xValues[ROWS];
-	int yValues[ROWS];
+	float xValues[ROWS];
+	float yValues[ROWS];
 
 	MathFunctionBegin( xyValues, xValues, yValues);
-	MathFunction(xValues, yValues, sizeof(xValues)/sizeof(int));
+	MathFunction(xValues, yValues, sizeof(xValues)/sizeof(float));
 
 	return 0;
 }
 
 /* Function Defenitions */
-void MathFunctionBegin(int xyAxis[][COLS],int x[],int  y[])
+void MathFunctionBegin(int xyAxis[][COLS],float x[],float y[])
 {
 	for ( int i = 0; i < ROWS ; i++)
 	{
@@ -66,7 +66,7 @@ void MathFunctionBegin(int xyAxis[][COLS],int x[],int  y[])
 	return;
 }
 
-void MathFunction(int xAxis[], int yAxis[], int Rep)
+void MathFunction(float xAxis[], float yAxis[], int Rep)
 {
 	float m = 0.0;
 	float b = 0.0;
@@ -89,7 +89,7 @@ void MathFunction(int xAxis[], int yAxis[], int Rep)
 
 	b = (  (  ( sumx * sumxy)  -  ( sumxx * sumy ) ) /  (  ( sumxThenSquare ) - ( Rep *  sumxx) ) );
 	
-	printf("\nThe Range of altitudes that we were wonderfully given in km are: %.2d to %.2d\n", xAxis[0], xAxis[(ROWS -1)]);
+	printf("\nThe Range of altitudes that we were wonderfully given in km are: %.2f to %.2f\n", xAxis[0], xAxis[(ROWS -1)]);
 	printf("\nozone-mix-ratio = %.2f altitude + %.2f\n\n", m , b);
 
 	return;
